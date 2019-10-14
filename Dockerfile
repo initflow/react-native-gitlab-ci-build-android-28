@@ -14,6 +14,9 @@ RUN cd && \
     rm node-v${NODE_VERSION}-linux-x64.tar.gz
 ENV PATH ${PATH}:/opt/node/bin
 
+RUN echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
+
+
 
 # ——————————
 # Install Basic React-Native packages
